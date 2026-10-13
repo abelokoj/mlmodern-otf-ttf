@@ -1,0 +1,89 @@
+MANIFEST for the converted MLModern / MLModern Math fonts
+=========================================================
+
+These are modified versions of existing fonts, renamed as requested by the GUST
+Font License 1.0 and as the LPPL 1.3c asks of modified works. They are not the
+original fonts and are not endorsed by the original authors.
+
+Every family is provided twice, as OpenType (otf/, CFF outlines) and as TrueType
+(ttf/, quadratic outlines). The two folders are complete, parallel sets.
+
+TEXT FONTS
+----------
+Derived from MLModern 1.2 (Daniel Benjamin Miller, 2021; LPPL 1.3c), itself
+built on Latin Modern (B. Jackowski and J. M. Nowacki). Source: TeX Live 2026,
+package mlmodern, 92 Type 1 files (.pfb), byte-identical to TeX Live 2023.
+Modification: converted from Type 1 to OpenType and TrueType; name tables
+rewritten so the faces form the families listed below. The 10pt design size was
+used for every face. The Type 1 files carry no kerning or ligature data; see
+"KERNING AND LIGATURES" below.
+
+  Family                    Face          Derived from
+  MLModern                  Regular       mlmr10
+  MLModern                  Italic        mlmri10
+  MLModern                  Bold          mlmbx10
+  MLModern                  Bold Italic   mlmbxi10
+  MLModern Sans             Regular       mlmss10
+  MLModern Sans             Italic        mlmsso10
+  MLModern Sans             Bold          mlmssbx10
+  MLModern Sans             Bold Italic   mlmssbo10
+  MLModern Mono             Regular       mlmtt10
+  MLModern Mono             Italic        mlmtti10
+  MLModern Math Letters     Regular       mlmmi10
+  MLModern Math Letters     Bold          mlmmib10
+  MLModern Math Symbols     Regular       mlmsy10
+  MLModern Math Symbols     Bold          mlmbsy10
+  MLModern Math Extension   Regular       mlmex10
+
+Additional modification, TrueType text fonts only: the OS/2 table was upgraded
+from version 1 to version 3 and given the x-height and cap-height values of the
+OpenType twin, so applications size lines identically in both formats.
+
+KERNING AND LIGATURES
+---------------------
+Added to the eight proportional faces (MLModern and MLModern Sans, all four
+styles each), in both formats, as GPOS 'kern' and GSUB 'liga' features. Source:
+TeX Live 2026 TFM files and Latin Modern's lm-ec.enc encoding vector (package
+lm, same release).
+
+  Face                       TFM file            Kern pairs
+  MLModern Regular           ec-mlmr10.tfm       2484
+  MLModern Italic            ec-mlmri10.tfm      3716
+  MLModern Bold              ec-mlmbx10.tfm      2477
+  MLModern Bold Italic       ec-mlmbxi10.tfm     3709
+  MLModern Sans Regular      ec-mlmss10.tfm      2255
+  MLModern Sans Italic       ec-mlmsso10.tfm     2255
+  MLModern Sans Bold         ec-mlmssbx10.tfm    2255
+  MLModern Sans Bold Italic  ec-mlmssbo10.tfm    2255
+
+Ligatures: ff, fi, fl, ffi, ffl only. The TFM ligature rules that are TeX typing
+conventions (hyphen and quote sequences) were not included. MLModern Mono and
+the MLModern Math Letters/Symbols/Extension faces are unchanged.
+
+MATH FONTS
+----------
+Derived from New Computer Modern Math 8.1.1 (Antonis Tsolomitis, 2019-2026;
+GUST Font License 1.0). Source: TeX Live 2026, package newcomputermodern.
+
+  Files                                      Derived from (source/)
+  otf/MLModernMath-Regular.otf  (.ttf)       NewCMMath-Book.otf
+  otf/MLModernMath-Bold.otf     (.ttf)       NewCMMath-Bold.otf
+
+Modification of the OpenType files: name table and the CFF internal font names
+rewritten to the family "MLModern Math". For the Bold file only, OS/2
+fsSelection and head macStyle were corrected to mark it as Bold (upstream marks
+it Regular). Glyph outlines, the MATH table, GSUB, GPOS, GDEF, hmtx, and the
+cmap mappings are unchanged.
+
+Modification of the TrueType files: made from the renamed OpenType files by
+converting the cubic CFF outlines to quadratic TrueType outlines (maximum fit
+tolerance 0.5 font units). Only the outline tables were replaced (CFF became
+glyf and loca; maxp, post, head and the left side bearings in hmtx were adjusted
+as TrueType requires; a gasp table was added). MATH, GSUB, GPOS, GDEF, OS/2,
+cmap and name are byte-identical to the OpenType files, and the glyph order is
+unchanged. In the Bold, glyph braceright.ex carries two zero-area single-point
+contours upstream; TrueType cannot store these, so they are absent from the
+TrueType file. The drawn shape is identical.
+
+source/ holds the two unmodified source files, for provenance. They keep their
+original names and should not be installed alongside the renamed fonts.
